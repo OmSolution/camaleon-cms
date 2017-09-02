@@ -149,7 +149,7 @@ class CamaleonCms::PostType < CamaleonCms::TermTaxonomy
 
   # verify if this post_type support for page hierarchy (parents)
   def manage_hierarchy?
-    get_option('has_parent_structure', false)
+    get_option('has_parent_structure', true)
   end
 
   private

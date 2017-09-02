@@ -4,7 +4,7 @@ class CamaleonCms::Admin::Settings::PostTypesController < CamaleonCms::Admin::Se
   add_breadcrumb I18n.t("camaleon_cms.admin.sidebar.content_groups"), :cama_admin_settings_post_types_path
 
   def index
-    @post_types = current_site.post_types
+    @post_types = current_site.post_types.where('name not in (?)', ['Post','Page'])
     @post_types = @post_types.paginate(:page => params[:page], :per_page => current_site.admin_per_page)
     render "index"
   end
