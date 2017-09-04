@@ -3,7 +3,7 @@ class CamaleonCms::HtmlMailer < ActionMailer::Base
   include CamaleonCms::HooksHelper
   include CamaleonCms::PluginsHelper
   #include ApplicationHelper
-  default from: "Camaleon CMS <owenperedo@gmail.com>"
+  default from: "<owenperedo@gmail.com>"
   after_action :set_delivery_options
 
   # content='', from=nil, attachs=[], url_base='', current_site, template_name, layout_name, extra_data, format, cc_to
