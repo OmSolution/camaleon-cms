@@ -4,7 +4,7 @@ class CamaleonCms::TermTaxonomyDecorator < CamaleonCms::ApplicationDecorator
 
   # return the title for current locale
   def the_title(locale = nil)
-    r = {title: object.name.translate(get_locale(locale))+' Items', object: object}
+    r = {title: object.name.translate(get_locale(locale)), object: object}
     h.hooks_run("taxonomy_the_title", r) rescue nil # avoid error for command the_url for categories
     r[:title]
   end

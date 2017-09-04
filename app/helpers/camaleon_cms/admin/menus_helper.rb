@@ -5,15 +5,9 @@ module CamaleonCms::Admin::MenusHelper
     admin_menu_add_menu("dashboard", {icon: "dashboard", title: t('camaleon_cms.admin.sidebar.dashboard'), url: cama_admin_dashboard_path})
 
     items = []
-    if can? :manage, :settings
-      admin_menu_add_menu("brands", {icon: "files-o", title: t('camaleon_cms.admin.sidebar.content_groups'), url: cama_admin_settings_post_types_path, datas: "data-intro='#{t("camaleon_cms.admin.intro.post_type")}' data-position='right'"})
-
-      #items << {icon: "files-o", title: t('camaleon_cms.admin.sidebar.content_groups'), url: cama_admin_settings_post_types_path, datas: "data-intro='#{t("camaleon_cms.admin.intro.post_type")}' data-position='right'"}
-    end
-    items = []
 
     current_site.post_types.eager_load(:metas).visible_menu.all.each do |pt|
-      next if pt.name == 'Page' || pt.name == 'Post'
+      next if pt.name == 'Page'
       pt = pt.decorate
 
       items_i = []
